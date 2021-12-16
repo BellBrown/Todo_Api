@@ -40,8 +40,14 @@ async function updateById(request,response){
     }
 }
 
-function deleteById(request,response){
-
+async function deleteById(request,response){
+try {
+    await todoModel.findByIdAndDelete(request.params.todoId)
+    response.status(200).json({message:"todo deleted"});
+} catch (error) {
+    console.log("something went wrong",error.message);
+    
+}
 }
 
 module.exports ={
