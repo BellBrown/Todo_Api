@@ -10,11 +10,11 @@ app.use(express.json());
 
 app.post('/todo',todoController.addTodo);
 app.get('/todo',todoController.getAllTodo);
-app.put('/todo',todoController.updateById);
+app.patch('/todo/:todoId',todoController.updateById);
 app.delete('/todo',todoController.deleteById);
 app.get('/todo/:todoId',todoController.getTodoById);
 
-app.listen(3021,()=>{
+app.listen(3000,()=>{
     console.log("The server is running on port 3000");
     mongoose.connect('mongodb+srv://Christabel:1234@cluster0.vzylt.mongodb.net/todo_db?retryWrites=true&w=majority')
     .then(function(){

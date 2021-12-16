@@ -31,9 +31,15 @@ async function getTodoById(request,response){
     }
 }
 
-function updateById(request,response){
-
+async function updateById(request,response){
+    try {
+        const update = await todoModel.findByIdAndUpdate(request.params.todoId,request.body)
+        response.status(200).json(gettodo);
+    } catch (error) {
+    console.log("something went wrong",error.message);
+    }
 }
+
 function deleteById(request,response){
 
 }
