@@ -37,7 +37,7 @@ async function updateById(request,response){
         response.status(200).json(update);
     } catch (error) {
     console.log("something went wrong",error.message);
-    response.status(401);
+    response.status(400);
     }
 }
 
