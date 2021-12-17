@@ -34,9 +34,10 @@ async function getTodoById(request,response){
 async function updateById(request,response){
     try {
         const update = await todoModel.findByIdAndUpdate(request.params.todoId,request.body)
-        response.status(200).json(gettodo);
+        response.status(200).json(update);
     } catch (error) {
     console.log("something went wrong",error.message);
+    response.status(401);
     }
 }
 
